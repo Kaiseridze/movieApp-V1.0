@@ -9,4 +9,4 @@ Which I accessed with the async await function
 
 In this build, primitive pagination and popup work when you click on a movie
 
-Also the search also works (Only the names in it are displayed in Russian)
+The search also works (Only the names in it are displayed in Russian)
