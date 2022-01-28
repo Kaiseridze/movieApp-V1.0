@@ -53,9 +53,9 @@ function showMovies(data){
                      <div class="movie_cover-darkened"></div>
                </div>
                <div class="movie_info">
-                  <div class="movie_title">${movie.nameRu}</div>
+                  <div class="movie_title">${movie.nameRu != undefined ? movie.nameRu : 'Фильм не найден'}</div>
                   <div class="movie_genre">${movie.genres.map(genre => ` ${genre.genre}`)}</div>
-                  <div class="movie_rating movie_rating--${classByRate(movie.rating)}">${movie.rating}</div>
+                  <div class="movie_rating movie_rating--${classByRate(movie.rating ? movie.rating : ' ')}">${movie.rating != 'null' ? movie.rating : '-'}</div>
                </div>
       `;
       moviesCard.appendChild(moviesEl);
