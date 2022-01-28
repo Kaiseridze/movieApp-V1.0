@@ -124,12 +124,16 @@ footer_nav.addEventListener('click', (e) =>{
    if(page < 17){
       page++
       getMovies(nextPage);
+      window.scrollTo(0, 0);
    }
 
    if(page === 17){
       footer_nav.innerHTML='Конец топа';
    }
 })
+
+
+
 
 
 
