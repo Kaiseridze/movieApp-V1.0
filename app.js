@@ -130,7 +130,7 @@ const footer_nav = document.createElement('a');
    if(page === 17){
       footer_nav.innerHTML='Конец топа';
    }
-})
+});
 
 
 
