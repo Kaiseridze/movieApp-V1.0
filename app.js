@@ -55,7 +55,7 @@ function showMovies(data){
                <div class="movie_info">
                   <div class="movie_title">${movie.nameRu != undefined ? movie.nameRu : 'Фильм не найден'}</div>
                   <div class="movie_genre">${movie.genres.map(genre => ` ${genre.genre}`)}</div>
-                  <div class="movie_rating movie_rating--${classByRate(movie.rating ? movie.rating : ' ')}">${movie.rating != 'null' ? movie.rating : '-'}</div>
+                  <div class="movie_rating movie_rating--${classByRate(movie.rating ? movie.rating : '')}">${movie.rating != 'null' && movie.rating != null ? movie.rating : '-'}</div>
                </div>
       `;
       moviesCard.appendChild(moviesEl);
@@ -117,13 +117,13 @@ const footer_nav = document.createElement('a');
    
    footer.appendChild(footer_nav);
 
-footer_nav.addEventListener('click', (e) =>{
-   e.preventDefault();
-   e.stopPropagation();
-   const nextPage = `${API_URL_TOP}${page}`
-   if(page < 17){
-      page++
-      getMovies(nextPage);
+      footer_nav.addEventListener('click', (e) =>{
+      e.preventDefault();
+      e.stopPropagation();
+      const nextPage = `${API_URL_TOP}${page}`
+      if(page < 17){
+         page++
+         getMovies(nextPage);
       window.scrollTo(0, 0);
    }
 

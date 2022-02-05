@@ -157,6 +157,7 @@ li {
    position: fixed;
    pointer-events: none;
    opacity: 0;
+   transition: all ease-in .2s;
 }
 
 .popup img {
@@ -170,6 +171,7 @@ li {
    border-radius: 15px;
    opacity: 0;
    pointer-events: none;
+
 }
 
 .popup.active {
@@ -179,6 +181,7 @@ li {
 .popup_bg.active {
    opacity: 1;
    pointer-events: all;
+
 }
 
 img.active {
