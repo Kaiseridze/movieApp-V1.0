@@ -7,10 +7,11 @@ const form = document.querySelector("form");
 const input = document.querySelector(".header_search");
 const footer = document.querySelector(".footer");
 const popupBg = document.querySelector('.popup_bg');
-const popup = document.querySelector('.popup')
+const popup = document.querySelector('.popup');
 
 
 getMovies(API_URL_TOP);
+
 
 async function getMovies(url){
    const resp = await fetch(url, {
@@ -74,6 +75,12 @@ function showMovies(data){
          }  
       })
    });
+   if(data.pagesCount == 0){
+      const text = document.createElement('p');
+      text.classList.add('error__text')
+      text.innerHTML = 'Фильмов с таким названием не найдено'
+      moviesCard.appendChild(text)
+   }
 }
 
 
@@ -102,7 +109,7 @@ form.addEventListener('submit', (e) => {
    const apiUrlSearch = `${API_URL_SEARCH}${input.value}`
    if(input.value){
       getMovies(apiUrlSearch); 
-      footer.removeChild(footer_nav);
+      footer.removeChild(footer_nav)
    }
    else{
       getMovies(API_URL_TOP);
@@ -117,7 +124,7 @@ const footer_nav = document.createElement('a');
    
    footer.appendChild(footer_nav);
 
-      footer_nav.addEventListener('click', (e) =>{
+   footer_nav.addEventListener('click', (e) =>{
       e.preventDefault();
       e.stopPropagation();
       const nextPage = `${API_URL_TOP}${page}`
