@@ -109,7 +109,7 @@ form.addEventListener('submit', (e) => {
    const apiUrlSearch = `${API_URL_SEARCH}${input.value}`
    if(input.value){
       getMovies(apiUrlSearch); 
-      footer.removeChild(footer_nav)
+      footer.appendChild(footer_nav) ? footer.removeChild(footer_nav) : null
    }
    else{
       getMovies(API_URL_TOP);
