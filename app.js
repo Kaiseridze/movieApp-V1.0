@@ -64,6 +64,9 @@ function showMovies(data){
          openPopup();
          poster.classList.add('active')
       })
+      if(data.pagesCount === 0){
+         moviesCard.removeChild(moviesEl)
+      }
          const poster = document.createElement('img');
          poster.src = `${movie.posterUrlPreview}`
          popup.appendChild(poster)
@@ -75,12 +78,13 @@ function showMovies(data){
          }  
       })
    });
-   if(data.pagesCount == 0){
+   if(data.pagesCount === 0){
       const text = document.createElement('p');
       text.classList.add('error__text')
       text.innerHTML = 'Фильмов с таким названием не найдено'
       moviesCard.appendChild(text)
    }
+   console.log(data.pagesCount)
 }
 
 
